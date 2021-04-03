@@ -22,7 +22,7 @@ namespace SolutionHash
                 var ma = FileRe.Match(line);
                 if (ma.Success)
                 {
-                    var hf = new HashFile(this, ma.Groups["FileName"].Value);
+                    var hf = new HashFile(this, ma.Groups["FileName"].Value, ma.Groups["Type"].Value);
                     Files.Add(hf);
                 }
             }
@@ -39,6 +39,6 @@ namespace SolutionHash
         public List<HashFile> Files { get; } = new List<HashFile>();
         public string Hash { get; }
 
-        readonly static Regex FileRe = new Regex(@"<((Compile)|(None)) Include=""(?<FileName>.*)""");
+        readonly static Regex FileRe = new Regex(@"<(?<Type>(Compile)|(None)|(Content)) Include=""(?<FileName>.*)""");
     }
 }

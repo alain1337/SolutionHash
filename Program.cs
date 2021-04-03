@@ -19,7 +19,7 @@ namespace SolutionHash
             {
                 Console.WriteLine($"{project.Name}");
                 foreach (var file in project.Files)
-                    Console.WriteLine($"\t{file.Name,-40} {file.Hash}");
+                    Console.WriteLine($"\t{file.Name,-40} {file.Type,-10} {file.Hash}");
                 Console.WriteLine();
             }
             Console.WriteLine();
